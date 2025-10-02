@@ -1,0 +1,13 @@
+<nav class="container mx-auto flex justify-between">
+    <a href="{{ nav.homepage.url | url }}" class="font-bold text-xl">{{ config.site_name }}</a>
+    <ul class="flex space-x-4">
+        {% for nav_item in nav %}
+            <li>
+                <a href="{{ nav_item.url | url }}" class="{% if nav_item.active %}text-yellow-400 font-bold{% endif %}">
+                    {{ nav_item.title }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+</nav>
+</header>

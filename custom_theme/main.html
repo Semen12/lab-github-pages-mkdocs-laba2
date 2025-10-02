@@ -1,0 +1,37 @@
+
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Метаданные, подставляемые из mkdocs.yml -->
+    <title>{{ config.site_name }}</title>
+    <meta name="description" content="{{ config.site_description }}">
+    <meta name="author" content="{{ config.site_author }}">
+
+    <!-- Подключение собранных стилей -->
+    <link rel="stylesheet" href="{{ 'assets/css/style.css' | url }}">
+    
+    <!-- Подключение Tailwind CSS через CDN для разработки (пайплайн соберет свой файл) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+<body class="bg-gray-100 text-gray-800 font-sans min-h-screen flex flex-col">
+
+    <!-- Кастомный Header -->
+    {% include 'partials/header.html' %}
+
+    <!-- Основной контент -->
+    <main class="flex-grow container mx-auto px-6 py-8">
+        <div class="bg-white p-8 rounded-lg shadow-lg prose max-w-none">
+            {% block content %}
+                {{ page.content }}
+            {% endblock %}
+        </div>
+    </main>
+
+    <!-- Кастомный Footer -->
+    {% include 'partials/footer.html' %}
+
+</body>
+</html>

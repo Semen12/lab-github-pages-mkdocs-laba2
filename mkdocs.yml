@@ -1,8 +1,14 @@
-site_name: "Лабораторная работа: статический сайт и CI/CD"
-site_description: Проект с MkDocs + GitHub Actions
+# Общая конфигурация проекта
+site_name: "Лабораторная работа: Кастомный сайт и CI/CD"
+site_description: "Проект с кастомной темой для MkDocs и сборкой через GitHub Actions."
+site_author: "Семён Кондауров"
 
+# Указываем MkDocs использовать нашу кастомную тему
+theme:
+  name: null
+  custom_dir: 'theme/'
+
+# Структура навигации
 nav:
   - Главная: index.md
-  - Установка окружения: setup.md
-theme:
-  name: material
+  - Установка: setup.md

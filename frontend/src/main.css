@@ -1,0 +1,15 @@
+/* Этот файл является точкой входа для PostCSS.
+  Здесь подключаются базовые слои Tailwind CSS.
+  Вы можете добавлять свои кастомные стили ниже.
+*/
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Пример добавления кастомного стиля */
+/*
+body {
+  @apply font-serif;
+}
+*/
