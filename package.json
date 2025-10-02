@@ -4,11 +4,10 @@
   "description": "Frontend build process for MkDocs custom theme",
   "main": "index.js",
   "scripts": {
-    "build:css": "NODE_ENV=production postcss frontend/src/main.css -o custom_theme/static/css/main.css",
-    "dev:css": "postcss frontend/src/main.css -o custom_theme/static/css/main.css --watch",
+    "build:css": "set NODE_ENV=productionv && postcss frontend/src/main.css -o custom_theme/static/css/main.css",
     "build:mkdocs": "mkdocs build",
-    "validate:html": "html5validator --root./site --skip-non-html --format=text",
-    "minify:html": "html-minifier-terser --input-dir./site --output-dir./site --file-ext html --collapse-whitespace --remove-comments --remove-redundant-attributes",
+    "validate:html": "html5v ./site ",
+    "minify:html": "html-minifier-terser --input-dir ./site --output-dir ./site --file-ext html --collapse-whitespace --remove-comments --remove-redundant-attributes",
     "build": "npm run build:css && npm run build:mkdocs && npm run validate:html && npm run minify:html"
   },
   "author": "Semen K",
@@ -18,11 +17,9 @@
     "autoprefixer": "^10.4.16",
     "cssnano": "^6.0.1",
     "html-minifier-terser": "^7.2.0",
+    "html5-validator": "^1.2.1",
     "postcss": "^8.4.32",
     "postcss-cli": "^11.0.0",
     "tailwindcss": "^3.3.6"
-  },
-  "dependencies": {
-    "html5-validator": "^1.2.1"
   }
 }

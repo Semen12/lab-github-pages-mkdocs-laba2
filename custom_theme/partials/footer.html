@@ -1,6 +1,6 @@
 <footer class="bg-gray-800 text-white mt-auto">
     <div class="container mx-auto px-6 py-4 text-center">
-        <p>&copy; {% now 'utc', '%Y' %} {{ config.site_author }}. Все права защищены.</p>
+        <p>&copy; {{ build_date_utc.strftime('%Y') }} {{ config.site_author }}. Все права защищены.</p>
         <p>Сайт создан с помощью <a href="https://www.mkdocs.org/" target="_blank" rel="noopener" class="text-blue-400 hover:underline">MkDocs</a> и кастомной темы.</p>
     </div>
 </footer>
