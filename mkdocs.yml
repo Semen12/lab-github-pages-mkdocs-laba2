@@ -1,0 +1,8 @@
+site_name: "Лабораторная работа: статический сайт и CI/CD"
+site_description: Проект с MkDocs + GitHub Actions
+
+nav:
+  - Главная: index.md
+  - Установка окружения: setup.md
+theme:
+  name: material
