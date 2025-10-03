@@ -1,19 +1,16 @@
 name: Build, Validate, and Deploy Site
 
-# Триггеры: запускать при push в ветку 'main' или вручную
 on:
   push:
     branches:
       - main
   workflow_dispatch:
 
-# Устанавливаем разрешения для GITHUB_TOKEN для безопасного развертывания
 permissions:
   contents: read
   pages: write
   id-token: write
 
-# Устанавливаем политику конкурентности, чтобы отменять предыдущие запуски при новом push
 concurrency:
   group: "pages"
   cancel-in-progress: true
@@ -30,7 +27,7 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-          cache: 'pip' # Кешируем зависимости Python
+          cache: 'pip'
 
       - name: Install Python dependencies
         run: pip install -r requirements.txt
@@ -39,7 +36,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-          cache: 'npm' # Кешируем зависимости Node.js
+          cache: 'npm'
 
       - name: Install Node.js dependencies
         run: npm install
@@ -53,21 +50,15 @@ jobs:
           path: ./site
 
   # --- ЗАДАНИЕ 2: РАЗВЕРТЫВАНИЕ ---
-deploy:
-  needs: build
-  runs-on: ubuntu-latest
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
 
-  environment:
-    name: github-pages
-    url: ${{ steps.deployment.outputs.page_url }}
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
 
-  steps:
-    - name: Download artifact from build job
-      uses: actions/download-artifact@v4
-      with:
-        name: github-pages
-        path: ./site
-
-    - name: Deploy to GitHub Pages
-      id: deployment
-      uses: actions/deploy-pages@v4
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
