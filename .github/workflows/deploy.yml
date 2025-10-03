@@ -47,7 +47,7 @@ jobs:
       - name: Build site, validate and minify HTML
         run: npm run build
 
-      -- name: Upload Pages Artifact
+      - name: Upload Pages Artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./site
