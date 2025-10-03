@@ -1,6 +1,5 @@
 # Проект: Кастомизация статического сайта с CI/CD
 
-[![GitHub Actions](https://github.com/<ваш-ник>/<название-репозитория>/actions/workflows/build-and-deploy.yml/badge.svg)](https://github.com/<ваш-ник>/<название-репозитория>/actions)
 
 **Описание**  
 Этот проект демонстрирует, как создать кастомную тему для **MkDocs** с помощью **Tailwind CSS**, а также настроить CI/CD-пайплайн на GitHub Actions для автоматической сборки, тестирования и развёртывания на GitHub Pages.
