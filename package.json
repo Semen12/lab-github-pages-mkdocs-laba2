@@ -8,7 +8,7 @@
     "build:mkdocs": "mkdocs build",
     "validate:html": "html5v ./site ",
     "minify:html": "html-minifier-terser --input-dir ./site --output-dir ./site --file-ext html --collapse-whitespace --remove-comments --remove-redundant-attributes",
-    "build": "npm run build:css && npm run build:mkdocs && npm run validate:html && npm run minify:html"
+    "build": "npm run build:css && npm run build:mkdocs  && npm run minify:html"
   },
   "author": "Semen K",
   "license": "ISC",

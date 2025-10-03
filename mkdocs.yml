@@ -6,7 +6,7 @@ site_author: "Семён Кондауров"
 # Указываем MkDocs использовать нашу кастомную тему
 theme:
   name: null
-  custom_dir: 'custom_theme/'
+  custom_dir: 'custom_theme'
   
 
 # Структура навигации
