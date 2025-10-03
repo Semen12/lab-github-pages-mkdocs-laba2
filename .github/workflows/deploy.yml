@@ -47,12 +47,10 @@ jobs:
       - name: Build site, validate and minify HTML
         run: npm run build
 
-      - name: Upload artifact for deployment
-        uses: actions/upload-artifact@v4
+      -- name: Upload Pages Artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          name: github-pages
           path: ./site
-          retention-days: 1
 
   # --- ЗАДАНИЕ 2: РАЗВЕРТЫВАНИЕ ---
   deploy:
@@ -73,7 +71,7 @@ jobs:
           path: ./site
 
       - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact
+        uses: actions/upload-pages-artifact@v3
         with:
           path: ./site
 
