@@ -52,18 +52,35 @@ jobs:
         with:
           path: ./site
 
-  # --- ЗАДАНИЕ 2: РАЗВЕРТЫВАНИЕ ---
-  deploy:
+ # --- ЗАДАНИЕ 2: РАЗВЕРТЫВАНИЕ ---
+deploy:
+  needs: build
+  runs-on: ubuntu-latest
+
+  environment:
+    name: github-pages
+    url: ${{ steps.deployment.outputs.page_url }}
+
+  steps:
+    - name: Download artifact from build job
+      uses: actions/download-artifact@v4
+      with:
+        name: github-pages
+        path: ./site
+
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v4
     # Задание deploy зависит от успешного завершения задания build
-    needs: build
-    runs-on: ubuntu-latest
+      needs: build
+      runs-on: ubuntu-latest
     
     # Указываем окружение для развертывания на GitHub Pages
-    environment:
+      environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
 
-    steps:
+      steps:
       - name: Download artifact from build job
         uses: actions/download-artifact@v4
         with:
